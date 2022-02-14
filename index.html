@@ -7,15 +7,18 @@
     <title>Dashboard-2022</title>
     <style>
         *{padding: 0;margin: 0;box-sizing: border-box; list-style-type: none;
-            --bgcolor:rgb(214, 214, 214);
-        }
+            --bgcolor:rgb(240, 240, 240);
+            --focusMenuColor:rgba(207, 207, 207, 0.9);
+            --focusTextColor:rgb(50, 41, 155);}
+
         button{border: none;}
+        
         html,body{width: 100%;height: 100%;}
+        
         header{
             position: fixed;top: 0;left: 0; padding: 0 10px 0 15px;
             display: flex;justify-content: space-between; align-items: center;
-            width: 100%;height: 80px;background-color: var(--bgcolor);
-        }
+            width: 100%;height: 80px;background-color: var(--bgcolor);}
 
         header div:last-child{height: 100%; display: flex;flex-direction: row; align-items: center; flex-wrap: nowrap;}
         
@@ -23,20 +26,34 @@
         
         #profile{width: 50px;height: 50px; border-radius: 50%;}
         
-        nav{background-color: var(--bgcolor);}
+        nav{
+            background-color: var(--bgcolor);font-size: 30px;
+            height: 100%; padding: 15px 20px;}
+        
+        nav ul li,
+        nav ul li p{width: 100%;width: 100%; transition: transform .2s linear;}
+
+        nav ul li{padding: 10px 0 10px 10px; overflow: hidden;}
+        nav ul li p{height: 100%;}
+        nav ul li:hover{
+            background-color: var(--focusMenuColor);
+            color: var(--focusTextColor);}
+        nav ul li p:hover{transform: translateX(20px);}
         
         @media screen and (max-width:768px) {
             nav{
-                position: fixed;top: 0;left: 0;
-                height: 100%;width: 75vw;}
-            nav .s1{display: flex;flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap;}
-            nav .btn-x{width: 20px;height: 20px; color: #000;}
+                position: fixed;top: 0;left: 0; 
+                width: 75vw;}
+            nav .s1{
+                height: 80px;margin-bottom: 50px; border-bottom: 3px solid #000;
+                display: flex;flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap;}
+            nav .btn-x{width: 20px;height: 20px; color: #000; display: flex;align-items: center;}
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="menu"><i class="fa-solid fa-bars"></i></div>
+        <div class="menu"><i class="fas fa-solid fa-bars"></i></div>
         <div>
             <div class="mode"></div>
             <img id="profile" src="https://avatars.githubusercontent.com/u/46561454?v=4">
@@ -45,14 +62,14 @@
     <nav>
         <section class="s1">
             <div class="logo">LOGO</div>
-            <div class="btn-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="btn-x"><i class="fas fa-times"></i></div>
         </section>
         <ul>
-            <li>Dashboard</li>
-            <li>Calculator</li>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
+            <li><p>Dashboard</p></li>
+            <li><p>Calculator</p></li>
+            <li><p>A</p></li>
+            <li><p>B</p></li>
+            <li><p>C</p></li>
         </ul>
     </nav>
     <main class="dashboard">

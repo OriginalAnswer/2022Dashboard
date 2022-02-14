@@ -9,7 +9,9 @@
         *{padding: 0;margin: 0;box-sizing: border-box; list-style-type: none;
             --bgcolor:rgb(240, 240, 240);
             --focusMenuColor:rgba(207, 207, 207, 0.9);
-            --focusTextColor:rgb(50, 41, 155);}
+            --focusTextColor:rgb(50, 41, 155);
+            --sunColor:rgb(231, 85, 0);
+            --moonColor:rgb(255, 232, 29);}
         
         a{text-decoration: none; color: inherit;}
         button{border: none;}
@@ -29,10 +31,11 @@
             margin-right: 10px; border-radius: 20px; position: relative;
             width: 65px;height: 35px;background-color: rgb(119, 119, 119);}
         .mode span{z-index: 1;}
-        .mode .dark{color: #fff;}
+        .mode .light{color: var(--sunColor);}
+        .mode .dark{color: var(--focusMenuColor);}
         .mode::before{
-            content: ""; margin: 0 1px;
-            width: 50%;height: 90%; border-radius: 15px;z-index: 0;
+            content: ""; margin: 0 4px; opacity: .9;
+            width: 40%;height: 75%; border-radius: 15px;z-index: 0;
             position: absolute;left: 0;background-color: #fff;}
         #profile{
             box-sizing: content-box;
@@ -44,30 +47,42 @@
             width: 350px; height: 100%; padding: 15px 0;}
 
         nav .s1{ padding: 0 30px 15px 30px;}
-
-        nav ul li,
-        nav ul li a{width: 100%; transition: transform .2s linear;}
-
-        nav ul li{padding: 10px 0 10px 30px; overflow: hidden;}
-        nav ul li a{height: 100%;}
-        nav ul li:hover{
+        
+        nav .s2{
+            margin-top: 40px;
+            display: flex;flex-direction: column;
+            width: 100%; height: auto;}
+            
+        nav .s2 a{width: 100%;height: 100%;padding-left: 30px;}
+            
+        nav .s2 a:hover{
             border-left: 5px solid var(--focusTextColor);
             background-color: var(--focusMenuColor);
             color: var(--focusTextColor);}
-        nav ul li a:hover{transform: translateX(20px);}
+        
+        nav .s2 a div{
+            width: 100%;height: 100%;margin: 15px 0;
+            transition: transform .2s linear}
+
+        nav .s2 a div:hover{transform:translateX(5px);}
+    
+        #menu-open,#menu-close{cursor: pointer;}
         
         @media screen and (max-width:768px) {
-            nav{position: fixed;top: 0;left: 0;}
-            nav .s1{
-                height: 80px;margin-bottom: 50px; border-bottom: 3px solid #000;
+            #menu-open{margin-left: 10px; font-size: 25px;}
+            #menu-nav{
+                transition: 1s ease-in-out left;
+                position: fixed;top: 0;left:-60%;}
+            #menu-nav .s1{
+                height: 80px;margin-bottom: 10px; border-bottom: 3px solid #000;
                 display: flex;flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap;}
-            nav .close{width: 20px;height: 20px; color: #000; display: flex;align-items: center; cursor: pointer;}
+            #menu-nav #menu-close{width: 20px;height: 20px; color: #000; display: flex;align-items: center;}
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="menu"><i class="fas fa-solid fa-bars"></i></div>
+        <button id="menu-open"><i class="fas fa-solid fa-bars"></i></button>
         <div>
             <div class="mode">
                 <span class="light"><i class="fas fa-sun"></i></span>
@@ -76,25 +91,28 @@
             <img id="profile" src="https://avatars.githubusercontent.com/u/46561454?v=4">
         </div>
     </header>
-    <nav>
+    <nav class="menu-nav" id="menu-nav">
         <section class="s1">
             <div class="logo">LOGO</div>
-            <div class="close"><i class="fas fa-times"></i></div>
+            <div id="menu-close"><i class="fas fa-times"></i></div>
         </section>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Calculator</a></li>
-            <li><a href="#">A</a></li>
-            <li><a href="#">B</a></li>
-            <li><a href="#">C</a></li>
-            <li><a href="#">F</a></li>
-            <li><a href="#">G</a></li>
-        </ul>
+        <section class="s2">
+            <a href="#"><div>Dashboard</div></a>
+            <a href="#"><div>Calculator</div></a>
+            <a href="#"><div>A</div></a>
+            <a href="#"><div>B</div></a>
+            <a href="#"><div>C</div></a>
+            <a href="#"><div>F</div></a>
+            <a href="#"><div>G</div></a>
+        </section>
     </nav>
     <main>
         <h1 class="main-title">Dashboard</h1>
         <div class="today">mm/dd/yyyy</div>
     </main>
+
+    <script src="index.js"></script>
+
     <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>

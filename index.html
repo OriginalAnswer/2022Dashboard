@@ -17,15 +17,27 @@
         html,body{width: 100%;height: 100%;}
         
         header{
+            box-shadow: 0 .5em 1em var(--focusMenuColor);
             position: fixed;top: 0;left: 0; padding: 0 10px 0 15px;
             display: flex;justify-content: space-between; align-items: center;
             width: 100%;height: 80px;background-color: var(--bgcolor);}
 
         header div:last-child{height: 100%; display: flex;flex-direction: row; align-items: center; flex-wrap: nowrap;}
         
-        .mode{width: 80px;height: 30px;background-color: rgb(112, 93, 93);}
-        
-        #profile{width: 50px;height: 50px; border-radius: 50%;}
+        .mode{
+            display: flex; justify-content: space-around; align-items: center;
+            margin-right: 10px; border-radius: 20px; position: relative;
+            width: 65px;height: 35px;background-color: rgb(119, 119, 119);}
+        .mode span{z-index: 1;}
+        .mode .dark{color: #fff;}
+        .mode::before{
+            content: ""; margin: 0 1px;
+            width: 50%;height: 90%; border-radius: 15px;z-index: 0;
+            position: absolute;left: 0;background-color: #fff;}
+        #profile{
+            box-sizing: content-box;
+            border: 3px solid rgba(0, 0, 0, 0.331);
+            width: 50px;height: 50px; border-radius: 50%;}
         
         nav{
             background-color: var(--bgcolor);font-size: 30px;
@@ -49,7 +61,7 @@
             nav .s1{
                 height: 80px;margin-bottom: 50px; border-bottom: 3px solid #000;
                 display: flex;flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap;}
-            nav .btn-x{width: 20px;height: 20px; color: #000; display: flex;align-items: center;}
+            nav .close{width: 20px;height: 20px; color: #000; display: flex;align-items: center; cursor: pointer;}
         }
     </style>
 </head>
@@ -57,14 +69,17 @@
     <header>
         <div class="menu"><i class="fas fa-solid fa-bars"></i></div>
         <div>
-            <div class="mode"></div>
+            <div class="mode">
+                <span class="light"><i class="fas fa-sun"></i></span>
+                <span class="dark"><i class="fas fa-moon"></i></span>
+            </div>
             <img id="profile" src="https://avatars.githubusercontent.com/u/46561454?v=4">
         </div>
     </header>
     <nav>
         <section class="s1">
             <div class="logo">LOGO</div>
-            <div class="btn-x"><i class="fas fa-times"></i></div>
+            <div class="close"><i class="fas fa-times"></i></div>
         </section>
         <ul>
             <li><a href="#">Dashboard</a></li>
@@ -76,9 +91,9 @@
             <li><a href="#">G</a></li>
         </ul>
     </nav>
-    <main class="dashboard">
-        <h1></h1>
-        <div class="today"></div>
+    <main>
+        <h1 class="main-title">Dashboard</h1>
+        <div class="today">mm/dd/yyyy</div>
     </main>
     <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>

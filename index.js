@@ -20,6 +20,6 @@ today.innerText = `${d} / ${m} / ${y}`;
 
 // ---------------------------------------------
 const checkbox = document.getElementById(checkbox);
-checkbox.addEventListener('change', () => {
+mode.addEventListener('click', () => {
     document.body.classList.toggle('.dark-var');
 })

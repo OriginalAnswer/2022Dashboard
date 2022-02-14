@@ -1,10 +1,25 @@
 const nav = document.getElementById('menu-nav');
 const open = document.getElementById('menu-open');
 const close = document.getElementById('menu-close');
+const mode = document.querySelector('.mode');
 
 open.addEventListener('click', () => {
-    document.getElementById('menu-nav').style.left = '0';
+    nav.style.left = '0';
 })
 close.addEventListener('click', () => {
-    document.getElementById('menu-nav').style.left = '-60%';
+    nav.style.left = '-400px';
+})
+
+const today = document.querySelector('.today');
+const date = new Date();
+const d = String(date.getDate());
+const m = date.getMonth();
+const y = String(date.getFullYear());
+const dy = String(date.getDay());
+today.innerText = `${d} / ${m} / ${y}`;
+
+// ---------------------------------------------
+const checkbox = document.getElementById(checkbox);
+checkbox.addEventListener('change', () => {
+    document.body.classList.toggle('.darkmode');
 })

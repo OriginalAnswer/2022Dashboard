@@ -9,7 +9,8 @@
         :root{
             --color-background:#f6f6f9;
             --color-white: #fff;
-            --color-black: #000;
+            --color-dark: #363949;
+            --color-light: rgba(132,139,200,0.18);
             --color-background-mode:rgb(241, 241, 241);
             --focusMenuColor:rgba(241, 241, 241, 0.9);
             --focusTextColor:rgb(50, 41, 155);
@@ -17,19 +18,29 @@
             --moonColor:rgb(255, 232, 29);
 
             --article-border-radius: 50px;
-            --boxShadow:  20px 20px 60px #d6d0d9,-20px -20px 60px #ffffff;}
-        /* -------------------THME VAR--------------- */
-        .darkmode{
-            --color-background:rgb(29, 29, 29);
-            --color-white: #000;
-            --color-background-mode:rgb(66, 66, 66);
+            --boxShadow:  20px 20px 60px var(--color-light),-20px -20px 60px #ffffff;}
+            /* -------------------THME VAR--------------- */
+        .dark-var{
+            --color-background:#181a1e;
+            --color-white: #202528;
+            --color-dark: #edeffd;
+
+            --boxShadow:  20px 20px 60px var(--color-light),-20px -20px 60px #ffffff;}
+            
             --focusMenuColor:rgba(241, 241, 241, 0.9);
             --focusTextColor:rgb(50, 41, 155);
-            --boxShadow:  0 .5em 1em rgba(207, 207, 207, 0.9);
-            --boxShadow-article:  20px 20px 60px #d6d0d9,-20px -20px 60px #ffffff;}
 
         /* -------------------DRAK MODE VAR--------------- */
-        *{padding: 0;margin: 0;box-sizing: border-box; list-style-type: none;}
+        *{
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            appearance: none;
+            border: 0;
+            box-sizing: border-box; 
+            list-style: none;
+            text-decoration: none;}
+            
         a{text-decoration: none; color: inherit;}
         .hidden{display: none;}
         button{border: none;}
@@ -57,7 +68,7 @@
             border-radius: 20px;
             width: 65px;height: 35px;background-color: var(--color-background-mode);}
         .checkbox{position: absolute;}
-        .checkbox:checked + .label{background-color: var(--color-black);}
+        .checkbox:checked + .label{background-color: var(--color-dark);}
         .checkbox:checked + .label #ball{
             left: 0;}
 

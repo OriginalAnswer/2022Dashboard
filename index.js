@@ -19,7 +19,7 @@ const dy = String(date.getDay());
 today.innerText = `${d} / ${m} / ${y}`;
 
 // ---------------------------------------------
-const checkbox = document.getElementById(checkbox);
-mode.addEventListener('click', () => {
-    document.body.classList.toggle('.dark-var');
-})
+function darkmode(){
+    const b = document.body;
+    b.classList.toggle('darkmode')
+}
